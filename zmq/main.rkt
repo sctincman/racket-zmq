@@ -66,7 +66,7 @@
 
 
 ;; Special type for socket variants.
-(define-type Socket-Kind (U 'pub 'sub 'router))
+(define-type Socket-Kind (U 'pub 'sub 'router 'rep 'req 'stream))
 (define-predicate socket-kind? Socket-Kind)
 
 ;; Alias for our primary structure as `socket` itself is already

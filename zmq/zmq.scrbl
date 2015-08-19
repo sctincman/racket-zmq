@@ -17,13 +17,16 @@ This module is typed and can be used from both normal and typed code.
 }
 
 @defidform[Socket-Kind]{
-  Type of a ZeroMQ socket kind, equivalent to @racket[(U 'router 'pub 'sub)].
+  Type of a ZeroMQ socket kind, equivalent to @racket[(U 'router 'pub 'sub 'req 'rep 'stream)].
 
   The @racket['router] socket can send messages to any of it's peers,
-  always prefixed with that particular peer's identity part. The other two
-  kinds @racket['pub] and @racket['sub] can connect to each other and allow
+  always prefixed with that particular peer's identity part. The next two,
+  @racket['pub] and @racket['sub], can connect to each other and allow
   one-way distribution of messages without the need to identify individual
-  recipients on the sender's side.
+  recipients on the sender's side. @racket['rep] and @racket['req] work
+  similar to @racket['pub] and @racket['sub], with the @racket['rep] socket
+  replying to a message from the @racket['req] socket. @racket['stream] is
+  a raw TCP socket capable of asynchronous sending and receiving.
 }
 
 @defproc[(socket? (v Any)) Boolean]{

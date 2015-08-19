@@ -25,7 +25,7 @@
 
 ;; Symbol importer.
 (define-ffi-definer define-scheme #f)
-(define-ffi-definer define-zmq (ffi-lib "libzmq" '("3" "")))
+(define-ffi-definer define-zmq (ffi-lib "libzmq" '("5" "4" "3" #f)))
 
 
 ;; Utility that makes sure parent argument is only collected after the
@@ -98,7 +98,7 @@
 
 
 (define _zmq-socket-type
-  (_enum '(pair pub sub req rep dealer router pull push xpub xsub)))
+  (_enum '(pair pub sub req rep dealer router pull push xpub xsub stream)))
 
 
 ;; Error Handling
