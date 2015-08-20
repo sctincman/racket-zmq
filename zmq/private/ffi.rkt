@@ -75,7 +75,7 @@
 (define-cpointer-type _zmq-socket-pointer)
 
 (define-cstruct _zmq-msg
-  ((dummy (_array _byte 32))))
+  ((dummy (_array _byte 64))))
 
 
 (define _zmq-ctx-option-name
