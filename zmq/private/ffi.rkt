@@ -25,7 +25,7 @@
 
 ;; Symbol importer.
 (define-ffi-definer define-scheme #f)
-(define-ffi-definer define-zmq (ffi-lib "libzmq" '("3" "")))
+(define-ffi-definer define-zmq (ffi-lib "libzmq" '("5" "4" "")))
 
 
 ;; Utility that makes sure parent argument is only collected after the
