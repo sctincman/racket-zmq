@@ -52,7 +52,8 @@
          socket-bind
          socket-connect
          socket-subscribe
-         socket-unsubscribe)
+         socket-unsubscribe
+	 socket-last-endpoint)
 
 (provide
   (rename-out (new-socket socket)))
@@ -216,7 +217,10 @@
 (define (socket-unsubscribe socket prefix)
   (let ((prefix (string->bytes/safe prefix)))
     (void
-      (zmq-setsockopt/bstr (socket-sock socket) 'unsubscribe prefix))))
+     (zmq-setsockopt/bstr (socket-sock socket) 'unsubscribe prefix))))
 
+(: socket-last-endpoint (-> Socket (U String Bytes)))
+(define (socket-last-endpoint s)
+  (bytes->string/utf-8 (zmq-getsockopt/bstr (socket-sock s) 'last-endpoint)))
 
 ; vim:set ts=2 sw=2 et:

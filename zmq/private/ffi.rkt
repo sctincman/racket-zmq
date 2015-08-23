@@ -57,7 +57,7 @@
 (define (checked-result fn)
   (λ args
     (let ((result (apply fn args)))
-      (checked-result result)
+      (check-result result)
       (values result))))
 
 
@@ -86,7 +86,18 @@
 (define _zmq-bstr-option-name
   (_enum '(identity = 5
            subscribe = 6
-           unsubscribe = 7)))
+           unsubscribe = 7
+	   last-endpoint = 32
+	   plain-username = 45
+	   plain-password = 46
+	   curve-publickey = 48
+	   curve-secretkey = 49
+	   curve-serverkey = 50
+	   zap-domain = 55
+	   connect-rid = 61
+	   gssapi-server = 62
+	   gssapi-principal = 63
+	   gssapi-service-principal = 64)))
 
 (define _zmq-int-option-name
   (_enum '(fd = 14
@@ -94,8 +105,27 @@
            type = 16
            linger = 17
            sndhwm = 23
-           rcvhwm = 24)))
-
+           rcvhwm = 24
+	   tcp-keepalive = 34
+	   tcp-keepalive-cnt = 35
+	   tcp-keepalive-idle = 36
+	   tcp-keepalive-intvl = 37
+	   immediate = 39
+	   router-mandatory = 33
+	   xpub-verbose = 40
+	   router-raw = 41
+	   ipv6 = 42
+	   mechanism = 43
+	   plain-server = 44
+	   curve-server = 47
+	   probe-router = 51
+	   req-correlate = 52
+	   req-relaxed = 53
+	   conflate = 54
+	   router-handover = 56
+	   tos = 57
+	   gssapi-plaintext = 65
+	   handshake-ivl = 66)))
 
 (define _zmq-socket-type
   (_enum '(pair pub sub req rep dealer router pull push xpub xsub)))
