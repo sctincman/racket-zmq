@@ -6,6 +6,7 @@
 (require racket/function)
 
 (require mordae/async)
+(module test typed/racket/base)
 
 (require/typed zmq/private/ffi
   (#:opaque Context-Pointer zmq-ctx-pointer?)

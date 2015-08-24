@@ -12,6 +12,8 @@
 (require
   (rename-in ffi/unsafe (-> -->)))
 
+(module test racket/base)
+
 (provide
   (all-defined-out))
 
