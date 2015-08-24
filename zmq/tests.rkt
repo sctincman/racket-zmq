@@ -43,6 +43,7 @@
 	   [addr (socket-last-endpoint pub)]
 	   [message (string->bytes/utf-8 "Hello TCP World")]
 	   [sub (socket 'sub #:subscribe '("") #:connect (list addr))])
+      (sleep 1)
       (socket-send pub message)
       (check-equal? message
 		    (car (socket-receive sub))
